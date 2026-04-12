@@ -31,5 +31,6 @@
       "@state/*": ["AppState/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "../shared" }]
 }

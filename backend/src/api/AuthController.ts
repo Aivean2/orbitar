@@ -5,16 +5,17 @@ import { Logger } from 'winston'
 
 import UserManager from '../managers/UserManager'
 import { APIRequest, APIResponse, joiPassword, validate } from './ApiMiddleware'
-import { UserEntity } from './types/entities/UserEntity'
 import {
+  UserEntity,
   AuthCheckResetPasswordCodeRequest,
   AuthCheckResetPasswordCodeResponse,
   AuthNewPasswordRequest,
   AuthNewPasswordResponse,
   AuthResetPasswordRequest,
   AuthResetPasswordResponse,
-} from './types/requests/AuthResetPassword'
-import { AuthSignInRequest, AuthSignInResponse } from './types/requests/AuthSignIn'
+  AuthSignInRequest,
+  AuthSignInResponse,
+} from '@orbitar/shared'
 
 type SignOutRequest = Record<string, unknown>
 type SignOutResponse = Record<string, unknown>

@@ -50,7 +50,8 @@ services:
 
   frontend:
     build:
-      context: frontend
+      context: .
+      dockerfile: frontend/Dockerfile
       args:
         NODE_ENV: production
         SERVER_DOMAIN: ${SERVER_DOMAIN}
@@ -63,7 +64,8 @@ services:
 
   backend:
     build:
-      context: backend
+      context: .
+      dockerfile: backend/Dockerfile
     restart: always
     environment:
       SITE_DOMAIN: ${SERVER_DOMAIN}

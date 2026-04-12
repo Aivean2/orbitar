@@ -9,9 +9,7 @@ import VoteManager from '../managers/VoteManager'
 import { APIRequest, APIResponse, validate } from './ApiMiddleware'
 import { OAuth2MiddlewareGenerator } from './OAuth2Middleware'
 import { commonRateLimitConfig, sharedReadRateLimiter } from './RateLimiters'
-import { VoteListItemEntity } from './types/entities/VoteEntity'
-import { VoteListRequest, VoteListResponse } from './types/requests/VoteList'
-import { VoteSetRequest, VoteSetResponse } from './types/requests/VoteSet'
+import { VoteListItemEntity, VoteListRequest, VoteListResponse, VoteSetRequest, VoteSetResponse } from '@orbitar/shared'
 
 export default class VoteController {
   public router = Router()

@@ -1,0 +1,14 @@
+{
+  "name": "@orbitar/shared",
+  "version": "1.0.0",
+  "private": true,
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}

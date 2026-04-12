@@ -5,7 +5,7 @@ import SiteManager from '../managers/SiteManager'
 import UserManager from '../managers/UserManager'
 import { APIRequest, APIResponse } from './ApiMiddleware'
 import { OAuth2MiddlewareGenerator } from './OAuth2Middleware'
-import { StatusRequest, StatusResponse } from './types/requests/Status'
+import { StatusRequest, StatusResponse } from '@orbitar/shared'
 import { Enricher } from './utils/Enricher'
 
 export default class StatusController {

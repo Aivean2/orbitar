@@ -1,13 +1,26 @@
 FROM node:18 as build
-WORKDIR /backend
+WORKDIR /app
+
+# Copy root and workspace package files
 COPY package*.json ./
-RUN npm install
-COPY . .
+COPY shared/package*.json ./shared/
+COPY backend/package*.json ./backend/
+
+# Install all workspace dependencies
+RUN npm ci
+
+# Copy source
+COPY shared/ ./shared/
+COPY backend/ ./backend/
+
+# Build: shared first, then backend
 ENV DISABLE_ESLINT_PLUGIN=true
-RUN npm install && npm run build && rm -rf src
+RUN npm run -w shared build \
+ && npm run -w backend build \
+ && rm -rf shared/src backend/src
 
 FROM node:18
-COPY --from=build /backend /backend
-WORKDIR /backend
+COPY --from=build /app /app
+WORKDIR /app/backend
 EXPOSE 5001
 CMD npm run migration:production wait-and-up && npm run start:production
